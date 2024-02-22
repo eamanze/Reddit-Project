@@ -18,6 +18,17 @@ pipeline {
                 withAWS(credentials: 'aws-key', region: 'us-east-1') {
                 dir('EKS-TF') {
                     script {
+                        sh 'terraform init -reconfigure'
+                    }
+                }
+                }
+            }
+        }
+        stage('Initializing Terraform') {
+            steps {
+                withAWS(credentials: 'aws-key', region: 'us-east-1') {
+                dir('EKS-TF') {
+                    script {
                         sh 'terraform init'
                     }
                 }
