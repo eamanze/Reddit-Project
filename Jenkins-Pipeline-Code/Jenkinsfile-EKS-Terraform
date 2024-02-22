@@ -24,7 +24,7 @@ pipeline {
                 }
             }
         }
-        stage('Initializing Terraform') {
+        stage('Initializing Terraform2') {
             steps {
                 withAWS(credentials: 'aws-key', region: 'us-east-1') {
                 dir('EKS-TF') {
